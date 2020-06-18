@@ -1,12 +1,26 @@
-const { ClassName } = require('./class-name');
-
-// Main file where you execute function from class-name.js
 export { ClassName } from './class-name.js';
 
 function main() {
-  // querySelectors
+  const cards = document.querySelectorAll('.card');
 
-  // class usage
+  cards.forEach((card) => {
+    card.addEventListener('click', flipCard);
+    card.cla;
+  });
+
+  function flipCard() {
+    resetCards();
+    this.classList.toggle('card-front');
+  }
+
+  function resetCards() {
+    const flippedCards = document.querySelectorAll('.card-front');
+    if (flippedCards.length > 1) {
+      flippedCards.forEach((flippedCard) => {
+        flippedCard.classList.remove('card-front');
+      });
+    }
+  }
 }
 
 window.addEventListener('load', main);

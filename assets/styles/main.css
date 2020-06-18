@@ -5,10 +5,6 @@
   justify-content: center;
   align-items: stretch;
   height: 120px;
-  /* flex-wrap: wrap;
-
-    text-align: center;
-    margin: 4px -8px; */
 }
 
 .card {
@@ -19,9 +15,6 @@
   flex-basis: 12%;
   margin: 3px;
   cursor: pointer;
-
-  /*  height: 120px;
-  vertical-align: middle; */
 }
 
 .card-back {
@@ -30,4 +23,16 @@
 
 .card-front {
   background-color: cyan;
+}
+
+.card-back span {
+  display: none;
+}
+
+.card-front span {
+  display: inline;
+}
+
+.card-front img {
+  display: none;
 }
