@@ -1,1 +1,33 @@
-/* Main styles */
+.main {
+}
+.card-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 120px;
+  /* flex-wrap: wrap;
+
+    text-align: center;
+    margin: 4px -8px; */
+}
+
+.card {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 12%;
+  margin: 3px;
+  cursor: pointer;
+
+  /*  height: 120px;
+  vertical-align: middle; */
+}
+
+.card-back {
+  background-color: #f5de3075;
+}
+
+.card-front {
+  background-color: cyan;
+}
