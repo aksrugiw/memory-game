@@ -21,7 +21,7 @@
   background-color: #f5de3075;
 }
 
-.card-front {
+.card-flip {
   background-color: cyan;
 }
 
@@ -29,10 +29,10 @@
   display: none;
 }
 
-.card-front span {
+.card-flip span {
   display: inline;
 }
 
-.card-front img {
+.card-flip img {
   display: none;
 }

@@ -5,21 +5,20 @@ function main() {
 
   cards.forEach((card) => {
     card.addEventListener('click', flipCard);
-    card.cla;
   });
 
   function flipCard() {
-    resetCards();
-    this.classList.toggle('card-front');
+    this.classList.add('card-flip');
+    const flippedCards = document.querySelectorAll('.card-flip');
+    if (flippedCards.length > 1) {
+      setTimeout(hideCards, 2000, flippedCards);
+    }
   }
 
-  function resetCards() {
-    const flippedCards = document.querySelectorAll('.card-front');
-    if (flippedCards.length > 1) {
-      flippedCards.forEach((flippedCard) => {
-        flippedCard.classList.remove('card-front');
-      });
-    }
+  function hideCards(flippedCards) {
+    flippedCards.forEach((flippedCard) => {
+      flippedCard.classList.remove('card-flip');
+    });
   }
 }
 
