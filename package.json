@@ -11,5 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.10.2",
+    "jest": "^26.0.1"
   }
 }
