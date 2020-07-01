@@ -1,3 +1,7 @@
+import { Card } from './card.js';
+
+const IMAGE = 'https://cdn.icon-icons.com/icons2/2107/PNG/64/file_type_js_official_icon_130509.png';
+
 export class GameBoard {
   constructor(settings) {
     this.config = {};
@@ -7,24 +11,21 @@ export class GameBoard {
 
   render() {
     this.config.container.innerHTML = `<div class="board"></div>`;
-
     const board = document.querySelector('.board');
-    const size = this.config.size;
 
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < this.config.size; i++) {
       board.innerHTML += `<div class="card-row"></div>`;
     }
 
+    this.renderCards();
+  }
+  renderCards() {
     const cardRows = document.querySelectorAll('.card-row');
 
     cardRows.forEach((row) => {
-      for (let i = 0; i < size; i++) {
-        row.innerHTML += `
-          <div class="card card-back">
-            <img src="https://cdn.icon-icons.com/icons2/2107/PNG/64/file_type_js_official_icon_130509.png" alt="card">
-            <span class="card-content">test</span>
-          </div>
-        `;
+      for (let i = 0; i < this.config.size; i++) {
+        const card = new Card({ container: row, backImage: IMAGE, content: 'test' });
+        card.render();
       }
     });
   }
