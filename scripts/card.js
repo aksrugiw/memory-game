@@ -8,9 +8,10 @@ export class Card {
   render() {
     this.config.container.innerHTML += `
       <div class="card card-back">
-          <img src=${this.config.backImage} alt="back">
-           <span class="content">${this.config.content}</span>
+        <div class="content">
+          <img src="${this.config.contentImage}" alt="memory card">
         </div>
+      </div>
     `;
   }
 }
