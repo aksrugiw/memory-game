@@ -1,8 +1,10 @@
+body {
+  background-color: #f7c1b9;
+}
 .card-row {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  height: 120px;
 }
 
 .board {
@@ -11,12 +13,10 @@
 }
 
 .card {
-  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: 12%;
-  margin: 3px;
+  margin: 10px;
   cursor: pointer;
   flex: 1 1 280px;
   height: 100px;
@@ -27,11 +27,17 @@
 }
 
 .card-back {
-  background-color: #f5de3075;
+  background-color: #f8f5e2;
+  background-image: url(../images/card-bg.jpg);
+  background-size: cover;
+  background-position: 0 -42px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
 .card-on {
-  background-color: cyan;
+  background-color: #f8f5e2;
+  background-image: none;
 }
 
 .card-back .content {
@@ -39,5 +45,9 @@
 }
 
 .card-on .content {
-  display: inline;
+  display: flex;
+}
+
+.content img {
+  width: 84px;
 }
