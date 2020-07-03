@@ -1,7 +1,7 @@
 import { GameBoard } from './game-board.js';
 import { MemoryGame } from './memory-game.js';
 
-const ANIMALS = ['fox', 'rabbit', 'koala'];
+const ANIMALS = ['fox', 'bat', 'koala', 'bird', 'camel', 'cat', 'flamingo', 'octopus'];
 
 function main() {
   const count = 0;

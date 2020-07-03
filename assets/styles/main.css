@@ -7,19 +7,32 @@ body {
   align-items: stretch;
 }
 
+.main {
+  display: flex;
+  justify-content: center;
+}
+
 .board {
+  width: 525px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
+  height: 7.7rem;
+  width: 7.7rem;
+  margin: 0.2rem 0.2rem;
   cursor: pointer;
-  flex: 1 1 280px;
-  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .content {
+  place-self: center;
+  width: 84px;
 }
 
 .card.disabled {
@@ -41,13 +54,9 @@ body {
 }
 
 .card-back .content {
-  display: none;
+  visibility: hidden;
 }
 
 .card-on .content {
-  display: flex;
-}
-
-.content img {
-  width: 84px;
+  visibility: visible;
 }
