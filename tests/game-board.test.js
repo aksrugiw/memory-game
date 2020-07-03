@@ -2,7 +2,7 @@ import { GameBoard } from '../scripts/game-board';
 
 describe('GameBoard', () => {
   test('create object correctly', () => {
-    const gameBoard = new GameBoard({ container: document.body });
+    const gameBoard = new GameBoard({ container: document.body, cardsContent: [] });
 
     expect(gameBoard.config.container).toBe(document.body);
   });
@@ -15,26 +15,19 @@ describe('GameBoard', () => {
     expect(document.body.innerHTML).toContain('<div class="board">');
   });
 
-  test('render 6 * 6 card elements in board', () => {
-    const gameBoard = new GameBoard({ container: document.body, size: 6 });
+  test('render doubled size card array in board', () => {
+    const testArray = Array(6);
+    const gameBoard = new GameBoard({ container: document.body, cardsContent: testArray });
 
     gameBoard.render();
 
     const cards = document.querySelectorAll('.card');
 
-    expect(cards.length).toBe(6 * 6);
-  });
-
-  test('display error message when cannot create board', () => {
-    const gameBoard = new GameBoard({ container: document.body });
-
-    gameBoard.render();
-
-    expect(document.body.innerHTML).toContain('<p class="error"></p>');
+    expect(cards.length).toBe(testArray.length * 2);
   });
 
   test('display success message after finish game', () => {
-    const gameBoard = new GameBoard({ container: document.body });
+    const gameBoard = new GameBoard({ container: document.body, cardsContent: [] });
 
     gameBoard.render();
     gameBoard.finish();
@@ -43,7 +36,7 @@ describe('GameBoard', () => {
   });
 
   test('display game time after finish game ', () => {
-    const gameBoard = new GameBoard();
+    const gameBoard = new GameBoard({ container: document.body, cardsContent: [] });
     const time = '30s';
 
     gameBoard.render();

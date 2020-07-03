@@ -5,6 +5,11 @@
   height: 120px;
 }
 
+.board {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
   border: 1px solid black;
   display: flex;
@@ -13,6 +18,8 @@
   flex-basis: 12%;
   margin: 3px;
   cursor: pointer;
+  flex: 1 1 280px;
+  height: 100px;
 }
 
 .card.disabled {
