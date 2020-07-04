@@ -31,8 +31,8 @@ body {
 }
 
 .card .content {
-  place-self: center;
   width: 84px;
+  pointer-events: none;
 }
 
 .card.disabled {
@@ -48,6 +48,7 @@ body {
   border-radius: 10px;
 }
 
+.card-keep,
 .card-on {
   background-color: #f8f5e2;
   background-image: none;
@@ -57,6 +58,7 @@ body {
   visibility: hidden;
 }
 
-.card-on .content {
+.card-on .content,
+.card-keep .content {
   visibility: visible;
 }

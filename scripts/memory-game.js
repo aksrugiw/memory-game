@@ -1,6 +1,7 @@
 export class MemoryGame {
   constructor(settings) {
     this.config = {};
+    this.clickedCards = [];
 
     Object.assign(this.config, settings);
   }
@@ -13,14 +14,40 @@ export class MemoryGame {
   }
 
   turnOverCard(e) {
-    this.config.count++;
     e.target.classList.add('card-on');
-    const flippedCards = document.querySelectorAll('.card-on');
-    if (this.config.count > 1) {
-      this.disableCards();
-      // setTimeout(this.hideCards.bind(this), 1000, flippedCards);
-      this.hideCards(flippedCards);
+    this.clickedCards.push(e.target);
+
+    if (this.clickedCards.length < 2) {
+      return;
     }
+
+    if (this.clickedCards.length === 2) {
+      this.disableCards();
+
+      if (this.compareCards()) {
+        this.keepCards();
+        this.enableCards();
+      } else {
+        this.hideCardsAfterTime();
+      }
+    }
+
+    this.clickedCards = [];
+  }
+
+  compareCards() {
+    return this.clickedCards[0].children[0].alt === this.clickedCards[1].children[0].alt;
+  }
+
+  keepCards() {
+    this.clickedCards.forEach((card) => {
+      card.classList.remove('card-on');
+      card.classList.add('card-keep');
+    });
+  }
+
+  hideCardsAfterTime() {
+    setTimeout(this.hideCards.bind(this), 1000);
   }
 
   disableCards() {
@@ -35,11 +62,12 @@ export class MemoryGame {
     });
   }
 
-  hideCards(flippedCards) {
+  hideCards() {
+    const flippedCards = document.querySelectorAll('.card-on');
+
     flippedCards.forEach((flippedCard) => {
       flippedCard.classList.remove('card-on');
     });
-    this.config.count = 0;
     this.enableCards();
   }
 }
