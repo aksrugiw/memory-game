@@ -4,17 +4,17 @@ import { Card } from '../scripts/card.js';
 
 let memoryGame, cards, gameBoard;
 beforeAll(() => {
-  gameBoard = new GameBoard({ container: document.body, size: 2 });
+  gameBoard = new GameBoard({ container: document.body, cardsContent: ['foo', 'bar'] });
   gameBoard.render();
   cards = document.querySelectorAll('.card');
-  memoryGame = new MemoryGame({ cards, count: 0 });
+  memoryGame = new MemoryGame({ cards });
 });
 
 describe('MemoryGame', () => {
   test('create object', () => {
-    const memoryGame = new MemoryGame({ count: 1 });
+    const memoryGame = new MemoryGame({ cards: [1] });
 
-    expect(memoryGame.config.count).toBe(1);
+    expect(memoryGame.config.cards.length).toBe(1);
   });
 
   test('turn over card after click', () => {
@@ -27,30 +27,38 @@ describe('MemoryGame', () => {
 
   test('disable all cards when second card clicked', () => {
     memoryGame.setupClickEvents();
+    memoryGame.disableCards = jest.fn();
 
     cards[0].click();
     cards[1].click();
 
-    expect(cards[0].classList).toContain('disabled');
+    expect(memoryGame.disableCards).toHaveBeenCalled();
   });
 
-  test('enable all cards after one second', () => {});
+  test('enable all cards when second card clicked', () => {
+    memoryGame.setupClickEvents();
+    memoryGame.enableCards = jest.fn();
 
-  test('if cards not match turn them back after one second', () => {
-    const cards = [
-      new Card({ container: document.body, content: 'test1' }),
-      new Card({ container: document.body, content: 'test2' }),
-    ];
+    cards[0].click();
+    cards[1].click();
+
+    expect(memoryGame.enableCards).toHaveBeenCalled();
+  });
+
+  test('if cards match keep them in front of', () => {
+    const cardsContent = ['foo', 'foo'];
+    document.body.innerHTML = '';
+    const gameBoard = new GameBoard({ container: document.body, cardsContent });
+    gameBoard.render();
+    const cards = document.querySelectorAll('.card');
     const memoryGame = new MemoryGame({ cards });
-    const cardsElem = document.querySelectorAll('.card');
+    memoryGame.setupClickEvents();
 
-    cardsElem[0].click();
-    cardsElem[1].click();
+    cards[0].click();
+    cards[1].click();
 
-    const clickedCards = document.querySelectorAll('.card-on');
+    const matchedCards = document.querySelectorAll('.card-keep');
 
-    expect(clickedCards).not.toBeDefined();
+    expect(matchedCards.length).toBe(2);
   });
-
-  test('if cards match keep them in front of', () => {});
 });
