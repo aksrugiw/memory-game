@@ -41,7 +41,7 @@ export class MemoryGame {
 
   keepCards() {
     this.clickedCards.forEach((card) => {
-      card.classList.remove('card-on');
+      card.classList.remove('card-on', 'card-back');
       card.classList.add('card-keep');
     });
   }

@@ -21,18 +21,6 @@ describe('Card', () => {
     expect(document.querySelector('.card')).toBeDefined();
   });
 
-  test('render card with back image', () => {
-    const card = new Card({
-      container: document.body,
-      backImage: 'dummy-image.jpg',
-    });
-
-    card.render();
-    const image = document.querySelector('img');
-
-    expect(image.src).toContain('dummy-image.jpg');
-  });
-
   test('render card with content', () => {
     const card = new Card({
       container: document.body,
@@ -41,6 +29,6 @@ describe('Card', () => {
 
     card.render();
 
-    expect(document.querySelector('span.content').innerHTML).toContain('test');
+    expect(document.querySelector('.content').src).toContain('test');
   });
 });
