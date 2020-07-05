@@ -12,4 +12,26 @@ function main() {
   memoryGame.setupClickEvents();
 }
 
-window.addEventListener('load', main);
+function startGame() {
+  const overlay = document.querySelector('.overlay');
+  const button = document.querySelector('.modal-button');
+  const themes = document.querySelectorAll('.theme');
+
+  themes.forEach((theme) => {
+    theme.addEventListener('click', (e) => chooseTheme(e));
+  });
+
+  function chooseTheme(e) {
+    themes.forEach((theme) => {
+      theme.classList.remove('chosen');
+    });
+    e.target.parentElement.classList.toggle('chosen');
+  }
+
+  button.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    main();
+  });
+}
+
+window.addEventListener('load', startGame);

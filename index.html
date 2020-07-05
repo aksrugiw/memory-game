@@ -10,8 +10,39 @@
 </head>
 
 <body>
-  <h1>Memory Game</h1>
-  <main class="main"></main>
+  <h1 class="title">Memory Game</h1>
+  <main class="main">
+    <div class="overlay show">
+      <div class="modal">
+        <h2 class="modal-header">Let's play!</h2>
+        <div class="modal-body">
+          <p class="modal-content">Choose theme:</p>
+          <div class="modal-themes">
+            <div class="theme chosen" data-theme="animals">
+              <div class="card">
+                <img class="content" src="../assets/images/fox.png" alt="fox">
+              </div>
+              <p class="card-title">Animals</p>
+            </div>
+            <div class="theme" data-theme="music">
+              <div class="card">
+                <img class="content" src="../assets/images/harp.png" alt="fox">
+              </div>
+              <p class="card-title">Music</p>
+            </div>
+            <div class="theme" data-theme="cinema">
+              <div class="card">
+                <img class="content" src="../assets/images/camera.png" alt="fox">
+              </div>
+              <p class="card-title">Cinema</p>
+            </div>
+          </div>
+          <button class="modal-button">start</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <script src="scripts/main.js" type="module"></script>
 </body>
 
