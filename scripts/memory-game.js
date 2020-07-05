@@ -44,6 +44,8 @@ export class MemoryGame {
       card.classList.remove('card-on', 'card-back');
       card.classList.add('card-keep');
     });
+
+    this.finishGame();
   }
 
   hideCardsAfterTime() {
@@ -69,5 +71,21 @@ export class MemoryGame {
       flippedCard.classList.remove('card-on');
     });
     this.enableCards();
+  }
+
+  startGame() {}
+
+  finishGame() {
+    const backCards = document.querySelectorAll('.card-back');
+
+    if (backCards.length === 0) {
+      this.showModal();
+    }
+  }
+
+  showModal() {
+    const modal = document.querySelector('.modal');
+
+    modal.classList.add('show');
   }
 }
