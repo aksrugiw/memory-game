@@ -1,3 +1,5 @@
+import { Modal } from './modal.js';
+
 export class MemoryGame {
   constructor(settings) {
     this.config = {};
@@ -45,7 +47,11 @@ export class MemoryGame {
       card.classList.add('card-keep');
     });
 
-    this.finishGame();
+    const backCards = document.querySelectorAll('.card-back');
+
+    if (backCards.length === 0) {
+      this.finishGame();
+    }
   }
 
   hideCardsAfterTime() {
@@ -73,19 +79,14 @@ export class MemoryGame {
     this.enableCards();
   }
 
-  startGame() {}
-
   finishGame() {
-    const backCards = document.querySelectorAll('.card-back');
+    const modal = new Modal({
+      container: document.body,
+      header: 'Congratulation!',
+      body: `<p>You won the game!</p>`,
+      buttonText: 'Play again',
+    });
 
-    if (backCards.length === 0) {
-      this.showModal();
-    }
-  }
-
-  showModal() {
-    const modal = document.querySelector('.modal');
-
-    modal.classList.add('show');
+    modal.open();
   }
 }
