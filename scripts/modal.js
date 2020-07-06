@@ -16,14 +16,13 @@ export class Modal {
       </div>
     </div>
     `;
-
     this.setupClickEvents();
   }
 
   setupClickEvents() {
     const button = document.querySelector('.modal-button');
 
-    button.addEventListener('click', () => location.reload());
+    button.addEventListener('click', () => this.close());
   }
 
   open() {
@@ -35,7 +34,8 @@ export class Modal {
 
   close() {
     const overlay = document.querySelector('.overlay');
+    overlay.remove();
 
-    overlay.classList.remove('show');
+    this.config.actionAfterClose();
   }
 }

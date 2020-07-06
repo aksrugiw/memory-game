@@ -1,15 +1,8 @@
 import { GameBoard } from './game-board.js';
 import { MemoryGame } from './memory-game.js';
+import { themeArrays } from '../assets/data/themes.js';
 
-const ANIMALS = ['fox', 'bat', 'koala', 'bird', 'camel', 'cat', 'flamingo', 'octopus'];
-const MUSIC = ['violin', 'harp', 'panpipes', 'guitar', 'sax', 'flute', 'maracas', 'drum'];
-const CINEMA = ['camera', 'tickets', 'film-reel', 'popcorn', 'oscar', 'director', 'curtain', 'cinema'];
 let chosenTheme = 'animals';
-const themeArrays = {
-  animals: ANIMALS,
-  music: MUSIC,
-  cinema: CINEMA,
-};
 
 function main() {
   const container = document.querySelector('.main');

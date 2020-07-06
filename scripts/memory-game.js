@@ -81,10 +81,11 @@ export class MemoryGame {
 
   finishGame() {
     const modal = new Modal({
-      container: document.body,
+      container: document.querySelector('.main'),
       header: 'Congratulation!',
       body: `<p>You won the game!</p>`,
       buttonText: 'Play again',
+      actionAfterClose: document.location.reload.bind(document.location),
     });
 
     modal.open();
