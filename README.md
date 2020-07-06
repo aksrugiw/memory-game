@@ -2,6 +2,8 @@
 
 > Popular Memory Game for children and adults!
 
+![Example](assets/images/screen.png)
+
 ## Table of contents
 
 - [General info](#general-info)
@@ -42,6 +44,16 @@ Visit http://127.0.0.1:8080/ to see it in action.
 ## Status
 
 Project is: _in progress_
+
+To Do list:
+
+- [x] add possibility to choose theme
+
+- [ ] add more test
+
+- [ ] animation
+
+- [ ] count moves and time
 
 ## Contact
 
