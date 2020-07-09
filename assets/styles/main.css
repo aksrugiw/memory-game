@@ -22,12 +22,12 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  height: 100vh;
 }
 
 .title {
-  font-size: 6.4rem;
-  line-height: 7.7rem;
+  font-size: 5rem;
   font-weight: 400;
   text-align: center;
 }
@@ -90,6 +90,23 @@ body {
 .card-on .content,
 .card-keep .content {
   visibility: visible;
+}
+
+.footer {
+  margin: 0 auto;
+  padding: 4rem 0 1rem;
+}
+
+.footer p {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #5f6c7b;
+  margin: 0;
+}
+
+.footer a {
+  text-decoration-line: underline;
+  color: #3da9fc;
 }
 
 .overlay {

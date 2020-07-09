@@ -4,14 +4,6 @@
 
 ![Example](assets/images/screen.png)
 
-## Table of contents
-
-- [General info](#general-info)
-- [Technologies](#technologies)
-- [Setup](#setup)
-- [Status](#status)
-- [Contact](#contact)
-
 ## General info
 
 Memory Game is a game help you exercise your memory.
@@ -54,6 +46,10 @@ To Do list:
 - [ ] animation
 
 - [ ] count moves and time
+
+## Credits
+
+Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon](https://www.flaticon.com)
 
 ## Contact
 
