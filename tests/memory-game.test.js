@@ -61,4 +61,26 @@ describe('MemoryGame', () => {
 
     expect(matchedCards.length).toBe(2);
   });
+
+  test('display success message after finish game', () => {
+    document.body.innerHTML = `<main class="main"></main>`;
+    const main = document.querySelector('.main');
+    const gameBoard = new GameBoard({ container: main, cardsContent: [] });
+
+    gameBoard.render();
+    memoryGame.finishGame();
+
+    expect(document.body.innerHTML).toContain('Congratulation!');
+  });
+
+  test('display game time after finish game ', () => {
+    const gameBoard = new GameBoard({ container: document.body, cardsContent: [] });
+    const time = '30s';
+
+    gameBoard.render();
+    memoryGame.finish(time);
+    const displayTime = document.querySelector('.game-time');
+
+    expect(displayTime.innerHTML).toBe('time');
+  });
 });

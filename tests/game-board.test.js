@@ -25,24 +25,4 @@ describe('GameBoard', () => {
 
     expect(cards.length).toBe(testArray.length * 2);
   });
-
-  test('display success message after finish game', () => {
-    const gameBoard = new GameBoard({ container: document.body, cardsContent: [] });
-
-    gameBoard.render();
-    gameBoard.finish();
-
-    expect(document.body.innerHTML).toContain('<p class="success"></p>');
-  });
-
-  test('display game time after finish game ', () => {
-    const gameBoard = new GameBoard({ container: document.body, cardsContent: [] });
-    const time = '30s';
-
-    gameBoard.render();
-    gameBoard.finish(time);
-    const displayTime = document.querySelector('.game-time');
-
-    expect(displayTime.innerHTML).toBe('time');
-  });
 });
